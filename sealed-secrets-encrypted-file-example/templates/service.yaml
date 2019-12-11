@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "sealed-secrets-encrypted-file-example.fullname" . }}
+  labels:
+{{ include "sealed-secrets-encrypted-file-example.labels" . | indent 4 }}
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    - port: {{ .Values.service.port }}
+      targetPort: http
+      protocol: TCP
+      name: http
+  selector:
+    app.kubernetes.io/name: {{ include "sealed-secrets-encrypted-file-example.name" . }}
+    app.kubernetes.io/instance: {{ .Release.Name }}
