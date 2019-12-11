@@ -19,6 +19,7 @@ The python script does the following:
 ## Pre-requirements
 
 * a working instance of Kubernetes
+* a working instance of Helm
 * a working instance of the Sealed Secrets controller
 * a working copy of the kubeseal command line script
 * Python 3 installed
