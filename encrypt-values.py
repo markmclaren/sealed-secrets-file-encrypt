@@ -10,8 +10,6 @@ parser.add_argument("-f", required=True, type=str, help="Filename")
 
 args = parser.parse_args()
 filename = args.f
-print("Loading " + filename + "...")
-
 
 yaml = ruamel.yaml.YAML()
 yaml.preserve_quotes = True
