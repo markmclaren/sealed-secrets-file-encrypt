@@ -27,11 +27,11 @@ The python script does the following:
 I am wrote and am using this on Windows but inside the WSL Ubuntu.  I couldn't get kubeseal working in a Windows/DOS command line terminal.
 
 ```
- ./encrypt-values.py -f values-prod.unencrypted_yaml > values-prod.yaml
- ./encrypt-values.py -f values-dev.unencrypted_yaml > values-dev.yaml
+./encrypt-values.py -f values-prod.unencrypted_yaml > values-prod.yaml
+./encrypt-values.py -f values-dev.unencrypted_yaml > values-dev.yaml
 
- helm template -f values-prod.yaml ./sealed-secrets-encrypted-file-example
- helm template -f values-dev.yaml ./sealed-secrets-encrypted-file-example
- ```
+helm template -f values-prod.yaml ./sealed-secrets-encrypted-file-example
+helm template -f values-dev.yaml ./sealed-secrets-encrypted-file-example
+```
 
  Disclaimer: I don't write much Python so I'm sure the script could be much better if I knew what I was doing.
