@@ -1,0 +1,5 @@
+#
+# Test values-prod.yaml
+#
+foo: DEC(prod-unencrypted-value)
+foo2: DEC(prod-another-unencrypted-value)

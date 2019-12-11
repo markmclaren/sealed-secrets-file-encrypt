@@ -1,5 +1,0 @@
-#
-# Test values.yaml
-#
-foo: DEC(unencrypted-value)
-foo2: DEC(another-unencrypted-value)
