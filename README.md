@@ -22,7 +22,7 @@ The python script does the following:
 * a working instance of the Sealed Secrets controller
 * a working copy of the kubeseal command line script
 * Python 3 installed
-* Python library ruamel.yaml installed
+* Python library [ruamel.yaml](https://yaml.readthedocs.io/en/latest/install.html) installed
 
 I am wrote and am using this on Windows but inside the WSL Ubuntu.  I couldn't get kubeseal working in a Windows/DOS command line terminal.
 
