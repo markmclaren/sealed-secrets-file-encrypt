@@ -37,4 +37,5 @@ array3:
   - 3.14
   - 5.12
 is_underscore: true
-secret: DEC(unencrypted-value)
+secret1: DEC(unencrypted-value)
+secret2: DEC(another-unencrypted-value)
