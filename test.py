@@ -20,11 +20,14 @@ for key in data:
             data[key] = val # replace value
             print(val)
             cmd = "echo -n {} | kubeseal --raw --scope namespace-wide --from-file=/dev/stdin".format(val)
+            print (cmd)
+            cmdArgs = cmd.split(' ')
+            print (cmdArgs)
             p = subprocess.Popen(
-                [cmd],
+                cmdArgs,
                 stdout=subprocess.PIPE
             )
-            print(p.stdout.read().decode("utf-8") )
+            print("OUTPUT: " + p.stdout.read().decode("utf-8") )
 
             #result = subprocess.run(['ls'], capture_output=True)
             #print(result.stdout)
