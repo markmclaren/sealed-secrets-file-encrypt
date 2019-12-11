@@ -22,10 +22,13 @@ for key in data:
             # https://stackoverflow.com/questions/9393425/python-how-to-execute-shell-commands-with-pipe
             # echo -n <secret-password> | kubeseal --raw --scope namespace-wide --from-file=/dev/stdin
 
-            p1 = subprocess.Popen(["echo", "-n", val], stdout=subprocess.PIPE)
-            p2 = subprocess.Popen(["kubeseal", "--raw",  "--scope",  "namespace-wide", "--from-file=/dev/stdin"], stdin=p1.stdout, stdout=subprocess.PIPE)
-            p2.communicate()
-            print("OUTPUT: " + p2.stdout.read().decode("utf-8") )
+            #p1 = subprocess.Popen(["echo", "-n", val], stdout=subprocess.PIPE)
+            #p2 = subprocess.Popen(["kubeseal", "--raw",  "--scope",  "namespace-wide", "--from-file=/dev/stdin"], stdin=p1.stdout, stdout=subprocess.PIPE)
+            #p2.communicate()
+            #print("OUTPUT: " + p2.stdout.read().decode("utf-8") )
+
+            mycmd=subprocess.getoutput('echo -n {} | kubeseal --raw --scope namespace-wide --from-file=/dev/stdin'.format(val))
+            print(mycmd)
 
             #result = subprocess.run(['ls'], capture_output=True)
             #print(result.stdout)
