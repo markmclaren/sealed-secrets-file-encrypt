@@ -9,6 +9,7 @@ I got some ideas from [StackOverflow: How to use Kubeseal to seal a helm-templat
 I initally tried to write the script in Go (using [yaml2go](https://github.com/PrasadG193/yaml2go)) but Go doesn't work very well with Yaml files where the structures are not known ahead of time so I gave up and wrote it in Python instead.
 
 The python script does the following:
+
 * Read YAML file
 * Iterate YAML
 * Detect "DEC(password)" strings
