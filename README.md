@@ -4,3 +4,8 @@ Read YAML file
 Iterate YAML
 Detected "DEC()" strings
 Execute "kubeseal raw" to encrypt strings and write them back to the YAML
+
+
+---
+ ./encrypt-values.py > values.eyaml
+ helm template -f values.eyaml ./sealed-secrets-encrypted-file-example
