@@ -19,7 +19,14 @@ for key in data:
             val = val[:val.rfind(")")] # remove suffix
             data[key] = val # replace value
             print(val)
-            result = subprocess.run(['ls'], capture_output=True)
-            print(result.stdout)
+            cmd = "echo -n {} | kubeseal --raw --scope namespace-wide --from-file=/dev/stdin".format(val)
+            p = subprocess.Popen(
+                [cmd],
+                stdout=subprocess.PIPE
+            )
+            print(p.stdout.read().decode("utf-8") )
+
+            #result = subprocess.run(['ls'], capture_output=True)
+            #print(result.stdout)
     print('\n')
 yaml.dump(data, sys.stdout)
