@@ -7,5 +7,8 @@ Execute "kubeseal raw" to encrypt strings and write them back to the YAML
 
 
 ---
- ./encrypt-values.py > values.eyaml
- helm template -f values.eyaml ./sealed-secrets-encrypted-file-example
+ ./encrypt-values.py -f values-prod._unencrypted_yaml > values-prod.yaml
+ ./encrypt-values.py -f values-dev._unencrypted_yaml > values-dev.yaml
+
+ helm template -f values-prod.yaml ./sealed-secrets-encrypted-file-example
+ helm template -f values-dev.yaml ./sealed-secrets-encrypted-file-example

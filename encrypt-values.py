@@ -3,10 +3,19 @@
 import sys
 import ruamel.yaml
 import subprocess
+import argparse
+
+parser = argparse.ArgumentParser()
+parser.add_argument("-f", required=True, type=str, help="Filename")
+
+args = parser.parse_args()
+filename = args.f
+print("Loading " + filename + "...")
+
 
 yaml = ruamel.yaml.YAML()
 yaml.preserve_quotes = True
-with open('values.yaml') as fp:
+with open(filename) as fp:
     data = yaml.load(fp)
 for key in data:
     val = data.get(key)
