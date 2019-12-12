@@ -4,7 +4,7 @@
 I am working with Kubernetes.  I am trying to get [Helm](https://helm.sh/) and [Sealed Secrets](https://github.com/bitnami-labs/sealed-secrets) working nicely together.  
 
 I got some ideas from [StackOverflow: How to use Kubeseal to seal a helm-templated secret?
-](https://stackoverflow.com/questions/58161224/how-to-use-kubeseal-to-seal-a-helm-templated-secret)  However, I do not want to be manually running Kubeseal everytime I updated a secret - so I thought I would create a script to encrypt the values.yaml files in a similar way to Puppet's [heira-eyaml](https://github.com/voxpupuli/hiera-eyaml) and the [jasypt-maven-plugin](https://github.com/ulisesbocchio/jasypt-spring-boot#maven-plugin).
+](https://stackoverflow.com/questions/58161224/how-to-use-kubeseal-to-seal-a-helm-templated-secret)  However, I do not want to be manually running Kubeseal (sealed-secrets client) everytime I update a secret - so I thought I would create a script to encrypt the values.yaml files in a similar way to Puppet's [heira-eyaml](https://github.com/voxpupuli/hiera-eyaml) and the [jasypt-maven-plugin](https://github.com/ulisesbocchio/jasypt-spring-boot#maven-plugin).
 
 I initally tried to write the script in Go (using [yaml2go](https://github.com/PrasadG193/yaml2go)) but Go doesn't seem to work very well currently with Yaml files where the structures are not known ahead of time, so I gave up and wrote it in Python instead.
 
