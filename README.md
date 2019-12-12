@@ -25,12 +25,16 @@ The python script does the following:
 * Python 3 installed
 * Python library [ruamel.yaml](https://yaml.readthedocs.io/en/latest/install.html) installed
 
-I am wrote and am using this on Windows but inside the WSL Ubuntu.  I couldn't get kubeseal working in a Windows/DOS command line terminal.
+I wrote this script on a Windows 10 Pro laptop running WSL Ubuntu.  I couldn't get kubeseal working in a Windows command line terminal environment.
 
 ```
 ./encrypt-values.py -f values-prod.unencrypted_yaml > values-prod.yaml
 ./encrypt-values.py -f values-dev.unencrypted_yaml > values-dev.yaml
+```
 
+To see the Helm template with the encrypted values in place try:
+
+```
 helm template -f values-prod.yaml ./sealed-secrets-encrypted-file-example
 helm template -f values-dev.yaml ./sealed-secrets-encrypted-file-example
 ```
