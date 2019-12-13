@@ -12,7 +12,7 @@ The python script does the following:
 
 * Read YAML file
 * Iterate YAML
-* Detect "DEC(password)" strings
+* Detect "DEC(password)" placeholder strings
 * Execute "kubeseal raw" to encrypt strings and write them back to the YAML
 * Inject the encrypted values back into the appropriate part of the YAML
 
@@ -37,6 +37,18 @@ To see the Helm template with the encrypted values in place try:
 ```
 helm template -f values-prod.yaml ./sealed-secrets-encrypted-file-example
 helm template -f values-dev.yaml ./sealed-secrets-encrypted-file-example
+```
+
+The tool transforms a value.yaml file containing unencrypted values (maybe with a file extension that can be added to .gitignore like unencrypted_yaml):
+
+```
+foo: DEC(bar)
+```
+
+to something that can be committed to git like:
+
+```
+foo: AgBy3i4OJSWK+PiTySYZZA9rO43cGDEq.....
 ```
 
  Disclaimer: I don't write much Python so I'm sure the script could be much better if I knew what I was doing.
