@@ -39,7 +39,7 @@ helm template -f values-prod.yaml ./sealed-secrets-encrypted-file-example
 helm template -f values-dev.yaml ./sealed-secrets-encrypted-file-example
 ```
 
-The tool transforms a value.yaml file containing unencrypted values (maybe with a file extension that can be added to .gitignore like unencrypted_yaml):
+The tool transforms a values.yaml file containing unencrypted values (maybe with a file extension that can be added to .gitignore like unencrypted_yaml):
 
 ```
 foo: DEC(bar)
