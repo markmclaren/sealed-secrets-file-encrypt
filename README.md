@@ -60,7 +60,7 @@ helm template -f values-dev.yaml ./sealed-secrets-encrypted-file-example
 
 ## Updated
 
-I added support for supplying the public key as a parameter.  This means you no longer need to have direct access to Kubernetes to seal keys (you only need to public key that the sealed secrets controller uses - this usually changes pretty often).
+I added support for supplying the public key as a parameter.  This means you no longer need to have direct access to Kubernetes to seal keys (you only need the public key the sealed secrets controller uses - this usually changes pretty often).
 
 I have added Dockerfile and docker-compose files.  I also added a test public key (snakeoil.pem) for demonstration purposes.
 
