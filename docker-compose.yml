@@ -1,0 +1,8 @@
+version: "3.8"
+services:
+  sealed-secrets-encrypt:
+    build: .
+    image: sealed-secrets-encrypt
+    #command: ["-f", "values-prod.unencrypted_yaml", "-k",  "snakeoil.pem"]
+    volumes:
+    - ./:/root   

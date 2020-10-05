@@ -57,3 +57,36 @@ helm template -f values-dev.yaml ./sealed-secrets-encrypted-file-example
 ```
 
  Disclaimer: I don't write much Python so I'm sure the script could be much better if I knew what I was doing.
+
+## Updated
+
+I added support for supplying the public key as a parameter.  This means you no longer need to have direct access to Kubernetes to seal keys (you only need to public key that the sealed secrets controller uses - this usually changes pretty often).
+
+I have added Dockerfile and docker-compose files.  I also added a test public key (snakeoil.pem) for demonstration purposes.
+
+Build the image using docker-compose:
+
+```
+docker-compose build
+```
+
+Run the image, you should see the usage output.
+
+```
+# docker-compose run sealed-secrets-encrypt
+
+Creating sealed-secrets-file-encrypt_sealed-secrets-encrypt_run ... done
+usage: encrypt-values.py [-h] -f F -k K
+encrypt-values.py: error: the following arguments are required: -f, -k
+```
+
+
+You can then run the image like this:
+```
+# docker-compose run sealed-secrets-encrypt -f values-prod.unencrypted_yaml -k snakeoil.pem > values-prod.yml
+```
+
+Alternatively uncomment the f and k command parameters in the docker-compose.yml file, it would then work like this:
+```
+docker-compose run sealed-secrets-encrypt > values-prod.yml
+```
